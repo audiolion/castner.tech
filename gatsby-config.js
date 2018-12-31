@@ -5,8 +5,14 @@ module.exports = {
     author: `@ryan_castner`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: `posts`,
+      },
+    },
     `gatsby-plugin-catch-links`,
-    `gatsby-transformer-remark`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {
@@ -14,6 +20,16 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+        ],
       },
     },
     `gatsby-transformer-sharp`,
