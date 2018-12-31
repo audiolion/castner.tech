@@ -1,21 +1,43 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import { Layout } from '../components/Layout';
-import { Image } from '../components/Image';
 import { SEO } from '../components/SEO';
 
-const IndexPage = () => (
+type Props = {
+  data: any;
+};
+
+const IndexPage: React.SFC<Props> = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <div key={node.frontmatter.path}>
+        <Link to={`${node.frontmatter.path}`}>{node.frontmatter.title}</Link>
+        <div>
+          <time>{node.frontmatter.date}</time>
+        </div>
+        <div>{node.frontmatter.excerpt}</div>
+      </div>
+    ))}
   </Layout>
 );
+
+export const query = graphql`
+  query BlogExcerpts {
+    allMarkdownRemark {
+      edges {
+        node {
+          excerpt
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+            path
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
