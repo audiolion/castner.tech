@@ -945,6 +945,13 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
+"@types/rebass@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@types/rebass/-/rebass-0.3.3.tgz#a61d0e1e14f2d21b9e5a633713f898e094b57a4a"
+  integrity sha512-ZmEo7EXlSl1VQYjjojcN/Z+80tjLAY4iZylwYF3lZn5upQSi2p0BAOGvUklKK3RZjHlcBHXJryK9xlYnqYdSaQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/styled-components@^4.1.4":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.4.tgz#c6915ccee4413da2e1e81b4df9d7ea5b97eb56aa"
@@ -9869,6 +9876,13 @@ readdirp@^2.0.0:
     graceful-fs "^4.1.11"
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
+
+rebass@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rebass/-/rebass-3.0.0.tgz#3c9add593046dba9d39af001c96c67448eca8d55"
+  integrity sha512-O5kbFdl8hyGmetoybEGHOi2EwVJWr37iJbM1zHRF+Vkvuo/OYxjIu4XnPF6DRKGtsn2BPOfas3Gp1QBO6aq6/A==
+  dependencies:
+    styled-system "^3.1.11"
 
 recursive-readdir@2.2.1:
   version "2.2.1"
