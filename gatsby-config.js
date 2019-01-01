@@ -12,6 +12,7 @@ module.exports = {
         name: `posts`,
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
