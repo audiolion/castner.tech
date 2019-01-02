@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Castner Tech`,
-    description: `Software Development Blog by Ryan Castner`,
+    title: `castner.tech`,
+    description: `Ryan Castner's Software Development Blog.`,
     author: `@ryan_castner`,
   },
   plugins: [
