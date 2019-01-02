@@ -1,4 +1,5 @@
 import React from 'react';
+import { Location } from '@reach/router';
 import * as S from './styles';
 
 export const Header: React.SFC<{ siteTitle?: string }> = ({ siteTitle }) => (
@@ -13,7 +14,9 @@ export const Header: React.SFC<{ siteTitle?: string }> = ({ siteTitle }) => (
         <S.Text color="white" fontWeight="600">
           in
         </S.Text>{' '}
-        <S.Text color="green">{`~${window.location.pathname}`}</S.Text>
+        <Location>
+          {({ location }) => <S.Text color="green">{`~${location.pathname}`}</S.Text>}
+        </Location>
       </S.Link>
     </S.Content>
   </S.Header>
