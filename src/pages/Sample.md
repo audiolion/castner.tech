@@ -4,8 +4,6 @@ date: '2018-12-31T18:06:00Z'
 title: 'Sample Post'
 ---
 
-# Sample
-
 ```js
 /**
  * @param {number[]} nums
