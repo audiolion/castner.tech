@@ -9,13 +9,23 @@ export const sizes = {
 
 type Args = [CSSObject | TemplateStringsArray, SimpleInterpolation[]];
 
-// Iterate through the sizes and create a media template
-export const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args: Args) => css`
-    @media (min-width: ${sizes[label] / 16}em) {
-      ${css(...args)}
-    }
-  `;
+type Media = {
+  sm: (cssObject: any) => any;
+  md: (cssObject: any) => any;
+  lg: (cssObject: any) => any;
+  xl: (cssObject: any) => any;
+};
 
-  return acc;
-}, {});
+// Iterate through the sizes and create a media template
+export const media: Media = Object.keys(sizes).reduce(
+  (acc, label) => {
+    acc[label] = (...args: Args) => css`
+      @media (min-width: ${sizes[label] / 16}em) {
+        ${css(...args)}
+      }
+    `;
+
+    return acc;
+  },
+  {} as Media
+);
