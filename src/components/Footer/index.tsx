@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, Flex, Box } from 'rebass';
-import { Link } from '../Link';
+import * as S from './styles';
 
 const footerLinks = [
   { name: 'Github', href: 'https://github.com/audiolion' },
@@ -9,22 +8,12 @@ const footerLinks = [
 ];
 
 export const Footer: React.SFC<{}> = () => (
-  <Flex as="footer" justifyContent="center" flexWrap="wrap">
+  <S.Footer>
     {footerLinks.map(({ name, href }, idx) => (
-      <Link
-        key={idx}
-        as="a"
-        width={[1, 1, 1 / 3, 1 / 3]}
-        my={2}
-        href={href}
-        target="_blank"
-        rel="noopener"
-      >
-        <Text textAlign="center">{name}</Text>
-      </Link>
+      <S.FooterAnchor key={idx} href={href} target="_blank" rel="noopener">
+        {name}
+      </S.FooterAnchor>
     ))}
-    <Box mt={4}>
-      <Text textAlign="center">&copy; {new Date().getFullYear()}, Ryan Castner</Text>
-    </Box>
-  </Flex>
+    <S.Copyright>&copy; {new Date().getFullYear()}, Ryan Castner</S.Copyright>
+  </S.Footer>
 );

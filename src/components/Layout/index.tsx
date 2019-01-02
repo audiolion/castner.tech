@@ -1,11 +1,11 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
-import { Box } from 'rebass';
 
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { theme } from '../../utils/theme';
+import * as S from './styles';
 import './layout.css';
 
 export const Layout = ({ children }) => (
@@ -23,10 +23,12 @@ export const Layout = ({ children }) => (
       <ThemeProvider theme={theme}>
         <>
           <Header siteTitle={data.site.siteMetadata.title} />
-          <Box as="main" bg="background" color="white">
-            {children}
-            <Footer />
-          </Box>
+          <S.Main>
+            <S.Content>
+              {children}
+              <Footer />
+            </S.Content>
+          </S.Main>
         </>
       </ThemeProvider>
     )}
